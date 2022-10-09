@@ -145,7 +145,7 @@ public:
         Sau bước sinh sản (reproduction), population đang chứa nhiều hơn count cá thể
         Cần tiến hành chọn lọc tự nhiên để giữ lại đúng count cá thể trong biến population */
         // TO-DO: Thiết kế hàm chọn lọc tự nhiên để giữ lại count cá thể
-        // Gợi ý: Cố gắng vừa chọn cá thể tốt vừa duy trì sự đa dạng của quần thể
+        // Gợi ý: Cố gắng vừa chọn cá thể tốt vừa duy trì sự đa dạng của quần thể 
     }   
 };
 
