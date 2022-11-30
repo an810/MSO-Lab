@@ -140,14 +140,15 @@ public:
             population.push_back(p);            
         }
         best_indv = population[0];
+        update_pop();
         update_best();
     }
 
     void update_best() {
-        for (Individual &p: population) {
+        for (Individual &p: population) 
             if (p.scalar_fitness > best_indv.scalar_fitness) 
                 best_indv = p;
-        }
+        
     }
 
     void update_pop() {
@@ -260,12 +261,16 @@ int main() {
     
     Population pop;
     pop.init();
-    pop.update_pop();
     cout << "Generation 0, best solution tsp1 = "<< pop.best_indv.f1 << " tsp2 = " << pop.best_indv.f2 << endl;
     for (int i=0; i<pop.best_indv.dim; i++)
             cout << pop.best_indv.path[i] << " ";
     cout << endl;
     for (int t=1; t<=MAX_GENERATION; t++) {
+        // check best indiv
+        for (int i=0; i<pop.best_indv.dim; i++)
+            cout << pop.best_indv.path[i] << " ";
+        cout << endl;
+
         pop.reproduction(POP_SIZE);
         for (Individual &indiv : pop.population) {
             indiv.evaluate_f1();
@@ -273,7 +278,11 @@ int main() {
         }
         pop.update_pop();
         pop.selection(POP_SIZE);
-        Individual best = pop.population[0];
+        
+        //check best indiv
+        for (int i=0; i<pop.best_indv.dim; i++)
+            cout << pop.best_indv.path[i] << " ";
+        cout << endl;
         pop.update_best();
         cout << "Generation " << t << " , best solution f1 = "<< pop.best_indv.f1 << " tsp2 = " << pop.best_indv.f2 << endl;
         for (int i=0; i<pop.best_indv.dim; i++)
