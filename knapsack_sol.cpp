@@ -175,11 +175,11 @@ public:
 
         // giữ lại cá thể tốt nhất
         population.clear();
-        Individual best = candidates[0];
-        for (Individual &indiv: candidates) {
-            if (indiv.fitness > best.fitness)
-                best = indiv;
-        }
+            Individual best = candidates[0];
+            for (Individual &indiv: candidates) {
+                if (indiv.fitness > best.fitness)
+                    best = indiv;
+            }
         population.push_back(best);
 
         // xây dựng mảng cộng dồn xác suất
